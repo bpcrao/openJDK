@@ -1,16 +1,16 @@
 FROM debian:stretch-slim
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-		bzip2 \
-		unzip \
-		xz-utils \
-		wget \
-		python \
-		python-setuptools \
-		python-pip \
-		dos2unix \
-		git \
-		bzip2 \
+RUN apt-get update && apt-get install -y --no-install-recommends && \
+		bzip2 && \
+		unzip && \
+		xz-utils && \
+		wget && \
+		python && \
+		python-setuptools && \
+		python-pip && \
+		dos2unix && \
+		git && \
+		bzip2 && \
 		libc6-dev
 
 RUN mkdir /docker-java-home
