@@ -1,9 +1,6 @@
 FROM debian:stretch-slim
 
-RUN apt-get update -y && \
-	apt-get install -y pip && \
-	pip install setuptools && \
-	pip install wheel
+RUN apt-get update
 
 RUN apt-get install -y python-setuptools python python-pip
 
