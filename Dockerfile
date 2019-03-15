@@ -1,15 +1,13 @@
 FROM debian:stretch-slim
 
-RUN apt-get update && apt-get install -y --no-install-recommends && \
-		bzip2 && \
-		unzip && \
-		xz-utils && \
-		wget && \
-		python && \
-		python-setuptools && \
-		python-pip && \
-		dos2unix && \
-		git
+RUN apt-get update -y && \
+	apt-get install -y pip && \
+	pip install setuptools
+	
+RUN apt-get install -y python-setuptools python python-pip dos2unix libfontconfig git wget bzip2 libc6-dev --no-install-recommends && \
+    pip install awscli && \
+    apt-get autoremove --purge -y && \	
+    apt-get clean 
 
 RUN mkdir /docker-java-home
 RUN wget --no-check-certificate https://download.java.net/java/GA/jdk11/13/GPL/openjdk-11.0.1_linux-x64_bin.tar.gz
