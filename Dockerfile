@@ -2,9 +2,14 @@ FROM debian:stretch-slim
 
 RUN apt-get update -y && \
 	apt-get install -y pip && \
-	pip install setuptools
+	pip install setuptools && \
+	pip install wheel
+
+RUN apt-get install -y python-setuptools python python-pip
+
+RUN python setup.py bdist_wheel 	
 	
-RUN apt-get install -y python-setuptools python python-pip dos2unix libfontconfig git wget bzip2 libc6-dev --no-install-recommends && \
+RUN apt-get install -y dos2unix libfontconfig git wget bzip2 libc6-dev --no-install-recommends && \
     pip install awscli && \
     apt-get autoremove --purge -y && \	
     apt-get clean 
