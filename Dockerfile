@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		wget\
 		apt-get install -y python python-setuptools python-pip dos2unix libfontconfig git bzip2 libc6-dev --no-install-recommends \
 		pip install awscli && \
-		&& rm -rf /var/lib/apt/lists/*
+		rm -rf /var/lib/apt/lists/*
 
 # Default to UTF-8 file.encoding
 ENV LANG C.UTF-8
